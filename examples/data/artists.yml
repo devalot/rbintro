@@ -1,0 +1,10 @@
+- name: The Knife
+  albums:
+    - name: The Knife
+      year: 2001
+    - name: Deep Cuts
+      year: 2003
+    - name: Silent Shout
+      year: 2006
+    - name: Shaking the Habitual
+      year: 2013

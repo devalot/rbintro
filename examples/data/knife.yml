@@ -1,0 +1,14 @@
+- artist: The Knife
+  name: The Knife
+  year: 2001
+# <<: albums
+- artist: The Knife
+  name: Deep Cuts
+  year: 2003
+- artist: The Knife
+  name: Silent Shout
+  year: 2006
+# :>>
+- artist: The Knife
+  name: Shaking the Habitual
+  year: 2013
