@@ -5,13 +5,13 @@ require('minitest/autorun')
 module AllObjects; end
 
 ################################################################################
-class AllObjects::ModuleTest < MiniTest::Unit::TestCase
+class AllObjects::ModuleTest < MiniTest::Test
 
   ##############################################################################
   # For Ruby 1.9.3
   class Foo
     if !RUBY_VERSION.match(/^2/)
-      def self.prepend (*); end
+      def self.prepend(*); end
     end
   end
 

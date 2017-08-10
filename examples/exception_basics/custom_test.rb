@@ -5,7 +5,7 @@ require('minitest/autorun')
 module ExceptionBasics; end
 
 ################################################################################
-class ExceptionBasics::CustomTest < MiniTest::Unit::TestCase
+class ExceptionBasics::CustomTest < MiniTest::Test
 
   ##############################################################################
   # <<: class

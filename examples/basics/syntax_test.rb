@@ -2,12 +2,12 @@
 require('minitest/autorun')
 
 ################################################################################
-class SyntaxTest < MiniTest::Unit::TestCase
+class SyntaxTest < MiniTest::Test
 
   ##############################################################################
   # <<: person
   class Person
-    def initialize (first, last)
+    def initialize(first, last)
       @first_name = first
       @last_name  = last
     end

@@ -5,7 +5,7 @@ require('minitest/autorun')
 module CoreClasses; end
 
 ################################################################################
-class CoreClasses::IteratorTest < MiniTest::Unit::TestCase
+class CoreClasses::IteratorTest < MiniTest::Test
 
   ##############################################################################
   def test_array_iterator
@@ -41,6 +41,6 @@ class CoreClasses::IteratorTest < MiniTest::Unit::TestCase
   private
 
   ##############################################################################
-  def puts (*)
+  def puts(*)
   end
 end

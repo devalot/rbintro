@@ -5,7 +5,7 @@ require('minitest/autorun')
 module AllObjects; end
 
 ################################################################################
-class AllObjects::VisibilityTest < MiniTest::Unit::TestCase
+class AllObjects::VisibilityTest < MiniTest::Test
 
   ##############################################################################
   # <<: shape

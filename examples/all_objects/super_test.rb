@@ -5,12 +5,12 @@ require('minitest/autorun')
 module AllObjects; end
 
 ################################################################################
-class AllObjects::SuperTest < MiniTest::Unit::TestCase
+class AllObjects::SuperTest < MiniTest::Test
 
   ##############################################################################
   # <<: parent
   class Parent
-    def initialize (x, y)
+    def initialize(x, y)
       @x, @y = x, y
 
       # Other, important work...
@@ -21,7 +21,7 @@ class AllObjects::SuperTest < MiniTest::Unit::TestCase
   ##############################################################################
   # <<: child-no-super
   class Child < Parent
-    def initialize (a)
+    def initialize(a)
       # How to call Parent#initialize method?
     end
   end
@@ -30,7 +30,7 @@ class AllObjects::SuperTest < MiniTest::Unit::TestCase
   ##############################################################################
   # <<: child
   class Child < Parent
-    def initialize (a)
+    def initialize(a)
       super(a, a)
     end
   end
@@ -38,14 +38,14 @@ class AllObjects::SuperTest < MiniTest::Unit::TestCase
 
   ##############################################################################
   class Shape
-    def draw (*)
+    def draw(*)
     end
   end
 
   ##############################################################################
   # <<: circle
   class Circle < Shape
-    def draw (x, y)
+    def draw(x, y)
       super(1, 2) # Call with 1, 2.
       super(x, y) # Call with x, y.
       super x, y  # Same as above.

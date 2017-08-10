@@ -6,7 +6,7 @@ require('yaml')
 module Callbacks; end
 
 ################################################################################
-class Callbacks::DiscographyTest < MiniTest::Unit::TestCase
+class Callbacks::DiscographyTest < MiniTest::Test
 
   ##############################################################################
   TEST_FILE = File.expand_path('../data/knife.yml', File.dirname(__FILE__))
@@ -15,7 +15,7 @@ class Callbacks::DiscographyTest < MiniTest::Unit::TestCase
   class Album
     attr_accessor(:artist, :name, :year)
 
-    def initialize (artist, name, year)
+    def initialize(artist, name, year)
       self.artist = artist
       self.name   = name
       self.year   = year
@@ -24,12 +24,12 @@ class Callbacks::DiscographyTest < MiniTest::Unit::TestCase
 
   ##############################################################################
   class Discography
-    def initialize (albums)
+    def initialize(albums)
       @albums = albums
     end
 
     # <<: albums
-    def albums (year=nil, &block)
+    def albums(year=nil, &block)
       matches = if year
                   @albums.select {|a| a.year == year}
                 else
@@ -47,7 +47,7 @@ class Callbacks::DiscographyTest < MiniTest::Unit::TestCase
   require("yaml")
 
   class Discography
-    def self.open (file_name)
+    def self.open(file_name)
       albums = YAML.load_file(file_name).map do |album|
         Album.new(album["artist"],
                   album["name"],

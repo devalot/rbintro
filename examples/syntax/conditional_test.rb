@@ -2,7 +2,7 @@
 require('minitest/autorun')
 
 ################################################################################
-class ConditionalTest < MiniTest::Unit::TestCase
+class ConditionalTest < MiniTest::Test
 
   ##############################################################################
   def test_only_if

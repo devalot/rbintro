@@ -6,7 +6,7 @@ require('minitest/autorun')
 ################################################################################
 # <<: candy_bar
 class CandyBar
-  def initialize (name)
+  def initialize(name)
     @name  = name
     @bites = 5
   end
@@ -24,7 +24,7 @@ end
 
 ################################################################################
 # <<: candy_bar_test
-class CandyBarTest < MiniTest::Unit::TestCase
+class CandyBarTest < MiniTest::Test
 
 end
 # :>>

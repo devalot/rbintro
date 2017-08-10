@@ -12,7 +12,7 @@ module UsingAnArray
     attr_accessor(:name)
 
     # <<: using-array
-    def initialize (name)
+    def initialize(name)
       @name  = name
       @bites = []
     end
@@ -23,7 +23,7 @@ module UsingAnArray
       1.0 - total
     end
 
-    def bite (amount)
+    def bite(amount)
       @bites << amount if bites - amount >= 0.0
       amount
     end
@@ -31,7 +31,7 @@ module UsingAnArray
   end
 
   ##############################################################################
-  class CandyBarTest < MiniTest::Unit::TestCase
+  class CandyBarTest < MiniTest::Test
 
     def test_can_take_bite
       candy = CandyBar.new("Finite Bar")
@@ -58,7 +58,7 @@ module UsingAHash
   class CandyBar
     attr_accessor(:name)
 
-    def initialize (name)
+    def initialize(name)
       @name  = name
       @bites = {}
     end
@@ -70,7 +70,7 @@ module UsingAHash
       1.0 - total
     end
 
-    def bite (amount, person)
+    def bite(amount, person)
       if bites - amount >= 0.0
         so_far = @bites[person] || 0.0
         @bites[person] = so_far + amount
@@ -110,7 +110,7 @@ module UsingAHash
   end
 
   ##############################################################################
-  class CandyBarTest < MiniTest::Unit::TestCase
+  class CandyBarTest < MiniTest::Test
 
     def test_can_take_bite
       candy = CandyBar.new("Finite Bar")

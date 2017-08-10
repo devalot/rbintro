@@ -6,13 +6,13 @@ require('yaml')
 module Callbacks; end
 
 ################################################################################
-class Callbacks::FileTest < MiniTest::Unit::TestCase
+class Callbacks::FileTest < MiniTest::Test
 
   ##############################################################################
   module Example
 
     # <<: open
-    def parse_file (file_name)
+    def parse_file(file_name)
       File.open(file_name) do |file|
         file.pos
       end

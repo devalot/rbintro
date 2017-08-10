@@ -5,7 +5,7 @@ require('minitest/autorun')
 module Callbacks; end
 
 ################################################################################
-class Callbacks::ClassMethTest < MiniTest::Unit::TestCase
+class Callbacks::ClassMethTest < MiniTest::Test
 
   ##############################################################################
   # <<: battery
@@ -20,7 +20,7 @@ class Callbacks::ClassMethTest < MiniTest::Unit::TestCase
       new(0.0)
     end
 
-    def initialize (level)
+    def initialize(level)
       self.level = level
     end
   end

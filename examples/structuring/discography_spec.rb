@@ -9,7 +9,7 @@ module StructuringSpec
     class Album
       attr_accessor(:name, :year)
 
-      def initialize (name, year)
+      def initialize(name, year)
         self.name = name
         self.year = year
       end
@@ -21,12 +21,12 @@ module StructuringSpec
     class Artist
       attr_accessor(:name)
 
-      def initialize (name, albums)
+      def initialize(name, albums)
         self.name = name
         @albums   = albums
       end
 
-      def albums (year)
+      def albums(year)
         @albums.select {|a| a.year == year}
       end
     end

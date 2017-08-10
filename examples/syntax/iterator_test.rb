@@ -2,7 +2,7 @@
 require('minitest/autorun')
 
 ################################################################################
-class IteratorTest < MiniTest::Unit::TestCase
+class IteratorTest < MiniTest::Test
 
   ##############################################################################
   def test_iterator_pattern

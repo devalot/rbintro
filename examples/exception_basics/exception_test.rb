@@ -5,14 +5,14 @@ require('minitest/autorun')
 module ExceptionBasics; end
 
 ################################################################################
-class ExceptionBasics::ExceptionTest < MiniTest::Unit::TestCase
+class ExceptionBasics::ExceptionTest < MiniTest::Test
 
   ##############################################################################
   module MethodForm
 
     ############################################################################
     # <<: method
-    def parse_file (file_name)
+    def parse_file(file_name)
       file = File.open(file_name)
       # Do some work with file
     ensure

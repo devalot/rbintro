@@ -7,7 +7,7 @@ module CandyBarManualAccessors
   ##############################################################################
   # <<: getter
   class CandyBar
-    def initialize (name)
+    def initialize(name)
       @name = name
     end
     def name
@@ -19,7 +19,7 @@ module CandyBarManualAccessors
   ##############################################################################
   # <<: setter
   class CandyBar
-    def name= (name)
+    def name=(name)
       @name = name
     end
   end
@@ -27,7 +27,7 @@ module CandyBarManualAccessors
 end
 
 ################################################################################
-class CandyBarManualTest < MiniTest::Unit::TestCase
+class CandyBarManualTest < MiniTest::Test
 
   ##############################################################################
   include(CandyBarManualAccessors)
@@ -60,7 +60,7 @@ module CandyBarAutoAccessors
     attr_accessor('name')
     attr_reader('bites')
 
-    def initialize (name)
+    def initialize(name)
       @name  = name
       @bites = 5
     end
@@ -73,7 +73,7 @@ module CandyBarAutoAccessors
 end
 
 ################################################################################
-class CandyBarAutoTest < MiniTest::Unit::TestCase
+class CandyBarAutoTest < MiniTest::Test
 
   ##############################################################################
   include(CandyBarAutoAccessors)
@@ -99,12 +99,12 @@ module CandyBarWarning
   ##############################################################################
   # <<: warning
   class CandyBar
-    def initialize (the_name)
+    def initialize(the_name)
       name      = the_name # This is a local variable.
       self.name = the_name # Calls the setter method.
     end
 
-    def name= (name)
+    def name=(name)
       @name = name
     end
   end
@@ -112,7 +112,7 @@ module CandyBarWarning
 end
 
 ################################################################################
-class CandyBarWarningTest < MiniTest::Unit::TestCase
+class CandyBarWarningTest < MiniTest::Test
 
   ##############################################################################
   include(CandyBarWarning)
@@ -149,7 +149,7 @@ module CandyBarSymbolAccessors
 end
 
 ################################################################################
-class CandyBarSymbolTest < MiniTest::Unit::TestCase
+class CandyBarSymbolTest < MiniTest::Test
 
   ##############################################################################
   include(CandyBarSymbolAccessors)
@@ -169,7 +169,7 @@ module CandyBarConditional
   class CandyBar
     attr_accessor(:name)
     attr_reader(:bites)
-    def initialize (name); @bites = 5; @name = name; end
+    def initialize(name); @bites = 5; @name = name; end
 
     # <<: bite-if
     # From CandyBar...
@@ -181,7 +181,7 @@ module CandyBarConditional
 end
 
 ################################################################################
-class CandyBarConditionalTest < MiniTest::Unit::TestCase
+class CandyBarConditionalTest < MiniTest::Test
 
   ##############################################################################
   include(CandyBarConditional)

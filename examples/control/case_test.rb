@@ -5,14 +5,14 @@ require('minitest/autorun')
 module Control
 
   ##############################################################################
-  class CaseTest < MiniTest::Unit::TestCase
+  class CaseTest < MiniTest::Test
 
     ############################################################################
-    def do_list_command () :do_list_command; end
-    def do_display_artist (x) x; end
+    def do_list_command() :do_list_command; end
+    def do_display_artist(x) x; end
 
     ############################################################################
-    def case_command (input)
+    def case_command(input)
       # <<: case-input
       case input
       when "list"

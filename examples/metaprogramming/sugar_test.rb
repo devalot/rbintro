@@ -5,7 +5,7 @@ require('minitest/autorun')
 module Metaprogramming; end
 
 ################################################################################
-class Metaprogramming::SugarTest < MiniTest::Unit::TestCase
+class Metaprogramming::SugarTest < MiniTest::Test
 
   ##############################################################################
   module WithSugar

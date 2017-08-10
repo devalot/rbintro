@@ -5,12 +5,12 @@ require('minitest/autorun')
 module Metaprogramming; end
 
 ################################################################################
-class Metaprogramming::AttrTest < MiniTest::Unit::TestCase
+class Metaprogramming::AttrTest < MiniTest::Test
 
   ##############################################################################
   # <<: module
   module Helpers
-    def make_attribute (name)
+    def make_attribute(name)
       # Create the "getter".
       define_method(name.to_sym) do
         instance_variable_get("@#{name}".to_sym)

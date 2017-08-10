@@ -5,7 +5,7 @@ require('minitest/autorun')
 module CoreClasses; end
 
 ################################################################################
-class CoreClasses::NamespaceTest < MiniTest::Unit::TestCase
+class CoreClasses::NamespaceTest < MiniTest::Test
 
   ##############################################################################
   # <<: module

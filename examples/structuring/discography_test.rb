@@ -16,7 +16,7 @@ module Structuring
       class Album
         attr_accessor(:name, :year)
 
-        def initialize (name, year)
+        def initialize(name, year)
           self.name = name
           self.year = year
         end
@@ -28,12 +28,12 @@ module Structuring
       class Artist
         attr_accessor(:name)
 
-        def initialize (name, albums)
+        def initialize(name, albums)
           self.name = name
           @albums   = albums
         end
 
-        def albums (year)
+        def albums(year)
           @albums.select {|a| a.year == year}
         end
       end
@@ -44,7 +44,7 @@ module Structuring
         attr_reader(:artists)
 
         # <<: library-open
-        def self.open (file_name)
+        def self.open(file_name)
           data = YAML.load_file(file_name)
 
           artists = data.map do |raw_artist|
@@ -59,7 +59,7 @@ module Structuring
         end
         # :>>
 
-        def initialize (artists)
+        def initialize(artists)
           @artists = artists
         end
       end
@@ -67,7 +67,7 @@ module Structuring
   end
 
   ##############################################################################
-  class DiscographyTest < MiniTest::Unit::TestCase
+  class DiscographyTest < MiniTest::Test
 
     ############################################################################
     include(Simple)
@@ -117,7 +117,7 @@ module Structuring
       ##########################################################################
       class Album < Structuring::Simple::Discography::Album
         # <<: album-from-hash
-        def self.from_hash (raw)
+        def self.from_hash(raw)
           new(raw["name"], raw["year"])
         end
         # :>>
@@ -126,7 +126,7 @@ module Structuring
       ##########################################################################
       class Artist < Structuring::Simple::Discography::Artist
         # <<: artist-from-hash
-        def self.from_hash (raw)
+        def self.from_hash(raw)
           albums = raw["albums"].map {|a| Album.from_hash(a)}
           new(raw["name"], albums)
         end
@@ -136,7 +136,7 @@ module Structuring
       ##########################################################################
       class Library < Structuring::Simple::Discography::Library
         # <<: library-open2
-        def self.open (file_name)
+        def self.open(file_name)
           data = YAML.load_file(file_name)
           artists = data.map {|raw| Artist.from_hash(raw)}
           new(artists)
@@ -147,7 +147,7 @@ module Structuring
   end
 
   ##############################################################################
-  class Discography2Test < MiniTest::Unit::TestCase
+  class Discography2Test < MiniTest::Test
 
     ############################################################################
     include(FromHash)
@@ -200,7 +200,7 @@ module Structuring
   end
 
   ##############################################################################
-  class SortingTest < MiniTest::Unit::TestCase
+  class SortingTest < MiniTest::Test
 
     ############################################################################
     include(Sorting)

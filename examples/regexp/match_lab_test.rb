@@ -2,7 +2,7 @@
 require('minitest/autorun')
 
 ################################################################################
-class MatchLabTest < MiniTest::Unit::TestCase
+class MatchLabTest < MiniTest::Test
 
   ##############################################################################
   def test_number_matchers
@@ -35,7 +35,7 @@ class MatchLabTest < MiniTest::Unit::TestCase
   private
 
   ##############################################################################
-  def assert_stings_match (strings, re)
+  def assert_stings_match(strings, re)
     strings.each do |string, result|
       m = string.match(re)
       assert(m)

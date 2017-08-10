@@ -5,12 +5,12 @@ require('minitest/autorun')
 module Callbacks; end
 
 ################################################################################
-class Callbacks::BlockTest < MiniTest::Unit::TestCase
+class Callbacks::BlockTest < MiniTest::Test
 
   ##############################################################################
   module BlockGiven
     # <<: block-given
-    def open (file_name)
+    def open(file_name)
       file = File.open(file_name)
       yield(file) if block_given?
     ensure
@@ -30,7 +30,7 @@ class Callbacks::BlockTest < MiniTest::Unit::TestCase
   ##############################################################################
   module Explicit
     # <<: explicit
-    def open (file_name, &block)
+    def open(file_name, &block)
       file = File.open(file_name)
       block.call(file) if block
     ensure
@@ -41,7 +41,7 @@ class Callbacks::BlockTest < MiniTest::Unit::TestCase
     module_function(:open)
 
     # <<: silly
-    def silly (&block)
+    def silly(&block)
       list = [1, 2, 3]
       list.each(&block)
     end

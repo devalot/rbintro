@@ -5,12 +5,12 @@ require('minitest/autorun')
 module Metaprogramming; end
 
 ################################################################################
-class Metaprogramming::HookTest < MiniTest::Unit::TestCase
+class Metaprogramming::HookTest < MiniTest::Test
 
   ##############################################################################
   # <<: parent
   class Parent
-    def self.inherited (klass)
+    def self.inherited(klass)
       super # Get into the habit of using super.
       # ...
     end
@@ -26,7 +26,7 @@ class Metaprogramming::HookTest < MiniTest::Unit::TestCase
   ##############################################################################
   # <<: included
   module CoolFeatures
-    def self.included (klass)
+    def self.included(klass)
       # ...
     end
   end
