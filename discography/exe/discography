@@ -1,0 +1,74 @@
+#!/usr/bin/env ruby
+
+require "discography"
+
+class UI
+  class MissingFileError < StandardError
+    attr_accessor(:file_name)
+
+    def initialize(file_name)
+      @file_name = file_name || "no file given"
+      super("no such file: #{@file_name}")
+    end
+  end
+
+  def initialize(file_name)
+    if file_name.nil? || !File.exist?(file_name)
+      raise(MissingFileError.new(file_name))
+    end
+
+    @library = Discography::Library.open(file_name)
+    @sorted_artists = @library.artists.sort_by(&:sort_name)
+  end
+
+  def run
+    loop do
+      $stdout.print("disco> ")
+      input, *args = $stdin.gets.to_s.chomp.split
+
+      case input
+      when "exit", "quit", nil
+        return
+
+      when "list"
+        list
+
+      when "albums"
+        albums(args[0].to_i, (args[1] || :year).to_sym)
+
+      else
+        $stderr.puts("bad command: #{input}")
+      end
+    end
+  end
+
+  private
+
+  def list
+    @sorted_artists.each_with_index do |artist, i|
+      $stdout.puts("#{i}. #{artist.name}")
+    end
+  end
+
+  def albums(index, sort_key=:year)
+    artist = @sorted_artists[index]
+    $stdout.puts(">> Artist: #{artist.name} <<")
+
+    artist.albums.sort_by(&sort_key).
+      each_with_index do |album, i|
+        $stdout.puts("#{i}. #{album.name}")
+      end
+  end
+end
+
+begin
+  UI.new(ARGV[0]).run
+rescue UI::MissingFileError => e
+  $stderr.puts("ERROR: #{e}")
+  exit(1)
+rescue Interrupt => e
+  $stdout.puts("goodbye")
+rescue => e
+  $stderr.puts("ERROR: call for help: #{e}")
+  exit(1)
+end
